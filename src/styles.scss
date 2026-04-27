@@ -1,1 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --orange-dg: #f38a20;
+    --dark-bg: #0a0a0a;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: #ffffff;
+    font-family: 'Roboto Condensed', sans-serif;
+    scroll-behavior: smooth;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5 { 
+    font-family: 'Oswald', sans-serif; 
+    text-transform: uppercase; 
+}
+
+.text-dg { color: var(--orange-dg); }
+.bg-dg { background-color: var(--orange-dg); }
+.border-dg { border-color: var(--orange-dg); }
+
+.img-bw-to-color {
+    filter: grayscale(100%);
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+}
+.img-bw-to-color:hover, .img-bw-to-color:active {
+    filter: grayscale(0%);
+    transform: scale(1.02);
+}
+
+.scroll-mt { scroll-margin-top: 100px; }
+.scroll-mt-32 { scroll-margin-top: 120px; }
+
+input, select, textarea {
+    background: #1a1a1a !important;
+    border: 1px solid #333 !important;
+    color: #fff !important;
+    padding: 12px !important;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

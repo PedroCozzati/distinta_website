@@ -1,0 +1,55 @@
+<section class="py-20 bg-black border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-stretch">
+        <div id="aniversarios" class="scroll-mt-32 flex flex-col">
+            <h2 class="text-4xl font-bold italic mb-6 uppercase">Aniversário <span class="text-dg">No DG</span></h2>
+            <p class="text-gray-400 mb-8 italic">Comemore conosco e ganhe uma bebida à sua escolha por nossa conta!</p>
+            <form class="flex flex-col h-full">
+                <div class="flex-grow space-y-3">
+                    <input type="text" placeholder="NOME DO RESPONSÁVEL" required>
+                    <input type="email" placeholder="E-MAIL PARA CONTATO" required>
+                    <div class="grid grid-cols-2 gap-4">
+                        <input type="date" title="DATA DA RESERVA" class="uppercase">
+                        <input type="number" placeholder="Nº DE CONVIDADOS" min="1">
+                    </div>
+                    <input type="tel" placeholder="WHATSAPP / TELEFONE (APENAS NÚMEROS)" pattern="[0-9]*" inputmode="numeric">
+                    <input type="text" placeholder="NOME DO ANIVERSARIANTE">
+                </div>
+                <p class="text-gray-500 text-[11px] italic mt-1 uppercase">
+                    *Sujeito a disponibilidade. Entraremos em contato via WhatsApp para confirmar.
+                </p>
+                <button class="w-full bg-dg text-black font-bold py-4 rounded-lg uppercase tracking-widest hover:brightness-110 transition mt-6">
+                    Solicitar Reserva
+                </button>
+            </form>
+        </div>
+
+        <div id="cadastro-banda" class="scroll-mt-32 flex flex-col">
+            <h2 class="text-4xl font-bold italic mb-6 uppercase">Tem uma <span class="text-dg">Banda?</span></h2>
+            <p class="text-gray-400 mb-8 italic">Estamos sempre em busca de novos talentos para o nosso palco. Se você toca Rock, Blues ou Indie, preencha o formulário!</p>
+            <form (ngSubmit)="onSubmitBand()" #bandForm="ngForm">
+                <div class="flex-grow space-y-3">
+                    <input type="text" name="nome_banda" [(ngModel)]="bandData.nome_banda" placeholder="NOME DA BANDA" required>
+                    <input type="text" name="nome_contato" [(ngModel)]="bandData.nome_contato" placeholder="NOME DO CONTATO" required>
+                    <input type="email" name="email_banda" [(ngModel)]="bandData.email_banda" placeholder="E-MAIL DA BANDA" required>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <select name="estilo_musical" [(ngModel)]="bandData.estilo_musical" required class="bg-[#1a1a1a] border border-[#333] text-white p-3 rounded">
+                            <option value="">ESTILO MUSICAL</option>
+                            <option value="ROCK CLÁSSICO">ROCK CLÁSSICO</option>
+                            <option value="BLUES">BLUES</option>
+                            <option value="INDIE">INDIE</option>
+                            </select>
+                        <input type="number" name="num_integrantes" [(ngModel)]="bandData.num_integrantes" placeholder="Nº DE INTEGRANTES" min="1">
+                    </div>
+
+                    <input type="text" name="link_redes" [(ngModel)]="bandData.link_redes" placeholder="LINK REDES SOCIAIS / YOUTUBE">
+                    <input type="tel" name="telefone" [(ngModel)]="bandData.telefone" placeholder="NÚMERO PARA CONTATO" required>
+                    <textarea name="descricao" [(ngModel)]="bandData.descricao" placeholder="FALE UM POUCO SOBRE A BANDA..." rows="3" class="bg-[#1a1a1a] border border-[#333] text-white p-3 w-full rounded"></textarea>
+                </div>
+                <button type="submit" [disabled]="!bandForm.valid" class="w-full border-2 border-dg text-dg font-bold py-4 rounded-lg uppercase tracking-widest hover:bg-dg hover:text-black transition mt-6">
+                    Enviar Material
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
